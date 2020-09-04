@@ -1,5 +1,7 @@
 import express from 'express';
 
+import Routes from './routes';
+
 class App {
     constructor() {
         this.server = express();
@@ -8,7 +10,8 @@ class App {
     }
 
     routes() {
-        // this.server.use();
+        // set instance of server to Routes function
+        Routes(this.server);
     }
 }
 
