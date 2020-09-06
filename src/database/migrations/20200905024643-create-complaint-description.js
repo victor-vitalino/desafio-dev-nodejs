@@ -15,16 +15,6 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            created_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                default: new Date(),
-            },
-            updated_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                default: new Date(),
-            },
         });
     },
 

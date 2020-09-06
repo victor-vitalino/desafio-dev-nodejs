@@ -7,10 +7,6 @@ module.exports = {
                 autoIncrement: true,
                 allowNull: false,
             },
-            street: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
             latitude: {
                 type: Sequelize.NUMBER,
                 allowNull: false,
@@ -18,6 +14,16 @@ module.exports = {
             longitude: {
                 type: Sequelize.NUMBER,
                 allowNull: false,
+            },
+            created_at: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                default: new Date(),
+            },
+            updated_at: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                default: new Date(),
             },
         });
     },
