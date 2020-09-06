@@ -8,7 +8,7 @@ function formatAddress(requestFullAddressFromApi) {
         city: addressData.adminArea5,
         state: addressData.adminArea3,
         country: addressData.adminArea1,
-        postalCode: addressData.postalCode,
+        postal_code: addressData.postalCode,
     };
 }
 

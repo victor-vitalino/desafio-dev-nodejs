@@ -2,7 +2,7 @@ module.exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.addColumn('complaints', 'address_id', {
             type: Sequelize.INTEGER,
-            references: { model: 'complaint_address', key: 'id' },
+            references: { model: 'complaint_addresses', key: 'id' },
             onUpdate: 'cascade',
             onDelete: 'SET NULL',
             allowNull: true,

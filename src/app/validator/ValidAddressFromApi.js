@@ -7,7 +7,6 @@ async function validateRequestBody(address) {
         city: Yup.string().required(),
         state: Yup.string().required(),
         country: Yup.string().required(),
-        postalCode: Yup.string().required(),
     });
 
     // if schema valid

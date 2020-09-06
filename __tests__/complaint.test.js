@@ -39,7 +39,7 @@ describe('Complaint', () => {
                 },
             });
 
-        expect(response.status).toBe(200);
+        expect(response.status).toBe(201);
     });
 
     it('returns error if external api dont found the address', async () => {
@@ -60,5 +60,48 @@ describe('Complaint', () => {
             });
 
         expect(response.status).toBe(401);
+    });
+
+    it('returns json with the data saved in the database', async () => {
+        const response = await request(app)
+            .post('/v1/denuncias')
+            .send({
+                latitude: -9.507445,
+                longitude: -35.812549,
+                denunciante: {
+                    nome: 'Victor Vitalino',
+                    cpf: '07965948486',
+                },
+                denuncia: {
+                    titulo: 'Esgoto a céu aberto',
+                    descricao:
+                        'Existe um esgoto a céu aberto nesta localidade.',
+                },
+            });
+
+        expect(response.data).toMatchObject({
+            data: {
+                id: 4,
+                latitude: -9.507445,
+                longitude: -35.812549,
+                denunciante: {
+                    nome: 'Victor Vitalino',
+                    cpf: '07965948486',
+                },
+                denuncia: {
+                    titulo: 'Esgoto a céu aberto',
+                    descricao:
+                        'Existe um esgoto a céu aberto nesta localidade.',
+                },
+                endereco: {
+                    logradouro: 'Rua Primavera',
+                    bairro: '',
+                    cidade: 'Rio Largo',
+                    estado: 'Alagoas',
+                    pais: 'BR',
+                    cep: '',
+                },
+            },
+        });
     });
 });

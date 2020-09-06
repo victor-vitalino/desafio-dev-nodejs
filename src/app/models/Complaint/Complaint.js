@@ -1,13 +1,11 @@
 import Sequelize, { Model } from 'sequelize';
 
-class ComplaintAddress extends Model {
+class Complaint extends Model {
     static init(connection) {
         super.init(
             {
                 latitude: Sequelize.NUMBER,
                 longitude: Sequelize.NUMBER,
-                created_at: Sequelize.DATE,
-                updated_at: Sequelize.DATE,
             },
             { sequelize: connection }
         );
@@ -18,18 +16,18 @@ class ComplaintAddress extends Model {
         // association with address
         this.belongsTo(models.ComplaintAddress, {
             foreignKey: 'address_id',
-            as: 'complaint_address',
+            as: 'address',
         });
 
         this.belongsTo(models.ComplaintDescription, {
             foreignKey: 'description_id',
-            as: 'complaint_descriptions',
+            as: 'description',
         });
         this.belongsTo(models.ComplaintInformer, {
             foreignKey: 'informer_id',
-            as: 'complaint_informers',
+            as: 'informer',
         });
     }
 }
 
-export default ComplaintAddress;
+export default Complaint;

@@ -9,7 +9,7 @@ class ComplaintAddress extends Model {
                 city: Sequelize.STRING,
                 state: Sequelize.STRING,
                 country: Sequelize.STRING,
-                postalCode: Sequelize.STRING,
+                postal_code: Sequelize.STRING,
             },
             { sequelize: connection }
         );

@@ -2,9 +2,19 @@ import Sequelize from 'sequelize';
 
 import databaseConfig from '../config/database';
 
+import ComplaintAddress from '../app/models/Complaint/ComplaintAddress';
+import ComplaintInformer from '../app/models/Complaint/ComplaintInformer';
+import ComplaintDescription from '../app/models/Complaint/ComplaintDescription';
+import Complaint from '../app/models/Complaint/Complaint';
+
 // models
 
-const models = [];
+const models = [
+    ComplaintAddress,
+    ComplaintDescription,
+    ComplaintInformer,
+    Complaint,
+];
 
 class Database {
     constructor() {
