@@ -12,7 +12,8 @@
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "test": "jest"
+    "test": "jest",
+    "database":"npx sequelize-cli db:migrate"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",

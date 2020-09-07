@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
 
+import complaintErrors from '../../constants/complaintErrors';
+
 async function validateRequestComplaintBody(req, res, next) {
     // validate body from req to route of create complaint
     const validationBodySchema = Yup.object().shape({
@@ -17,12 +19,7 @@ async function validateRequestComplaintBody(req, res, next) {
 
     // if schema not valid
     if (!(await validationBodySchema.isValid(req.body))) {
-        return res.status(400).json({
-            error: {
-                message: 'Request inválido',
-                code: '01',
-            },
-        });
+        return res.status(400).json(complaintErrors.invalidDataRequest);
     }
 
     // schema valid

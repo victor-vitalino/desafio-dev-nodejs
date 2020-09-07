@@ -1,4 +1,4 @@
-import geolocationApi from './geolocation-api';
+import geolocationApi from '../../services/geolocation-api';
 
 const key = 'BJnaO7EBfX6YNAj6yccaWGGMCBUIY5lD';
 
