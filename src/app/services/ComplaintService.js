@@ -1,57 +1,49 @@
-import getAddressFromApi from '../subscribers/getAddressFromApi';
+import AddressService from './AddressService';
 
-import formatAddressFromApi from '../../utils/formatAddressFromApi';
 import formatResponseToPt from '../../utils/formatResponseToPt';
-import validateAddressFormatted from '../validator/ValidAddressFromApi';
-import complaintErrors from '../../constants/complaintErrors';
 
-import Informer from '../repository/InformerRepository';
-import Description from '../repository/DescriptionRepository';
-import Address from '../repository/AddressRepository';
+import InformerRepository from '../repository/InformerRepository';
+import DescriptionRepository from '../repository/DescriptionRepository';
+import AddressRepository from '../repository/AddressRepository';
 import Complaint from '../repository/ComplaintRepository';
 
 class ComplaintService {
-    async create(data) {
-        const {
-            latitude: lat,
-            longitude: lng,
-            denunciante: informerData,
-            denuncia: descriptionFromRequest,
-        } = data;
+    async run({
+        latitude,
+        longitude,
+        denunciante: informerData,
+        denuncia: descriptionFromRequest,
+    }) {
+        let address;
 
-        const { cpf, nome: name } = informerData;
-        const {
-            titulo: titleDescription,
-            descricao: textDescription,
-        } = descriptionFromRequest;
-
-        let fullAddress = {};
-
-        const responseAddressFromApi = await getAddressFromApi({
-            lat,
-            lng,
+        const { addressData, cached } = await AddressService.run({
+            latitude,
+            longitude,
         });
-
-        fullAddress = formatAddressFromApi(responseAddressFromApi);
-        // checks if the address from api contains valid data
-        if (!(await validateAddressFormatted(fullAddress))) {
-            return res.status(401).json(complaintErrors.addressNotFound);
-        }
 
         // saving data in parallel
         const resultAsyncs = await Promise.all([
-            Informer.create({ cpf, name }),
-            Address.create(fullAddress),
-            Description.create({
-                titleDescription,
-                textDescription,
+            InformerRepository.create({
+                cpf: informerData.cpf,
+                name: informerData.nome,
+            }),
+            DescriptionRepository.create({
+                title: descriptionFromRequest.titulo,
+                description: descriptionFromRequest.descricao,
             }),
         ]);
-        const [informer, address, description] = resultAsyncs;
+        const [informer, description] = resultAsyncs;
+
+        if (cached) {
+            address = addressData;
+        } else {
+            address = await AddressRepository.create(fullAddress);
+            Cache.set(cacheKey, address);
+        }
 
         const complaint = await Complaint.create({
-            lat,
-            lng,
+            latitude,
+            longitude,
             informer: informer.id,
             description: description.id,
             address: address.id,

@@ -59,7 +59,7 @@ describe('Complaint', () => {
                 },
             });
 
-        expect(response.status).toBe(401);
+        expect(response.status).toBe(400);
     });
 
     it('returns json with the data saved in the database', async () => {
@@ -79,9 +79,9 @@ describe('Complaint', () => {
                 },
             });
 
-        expect(response.data).toMatchObject({
+        expect(response).toMatchObject({
             data: {
-                id: 4,
+                id: 1,
                 latitude: -9.507445,
                 longitude: -35.812549,
                 denunciante: {

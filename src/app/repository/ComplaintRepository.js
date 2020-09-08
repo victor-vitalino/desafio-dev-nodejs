@@ -1,10 +1,10 @@
 import ComplaintModel from '../models/Complaint/Complaint';
 
 class ComplaintRepository {
-    async create({ lat, lng, informer, description, address }) {
+    async create({ latitude, longitude, informer, description, address }) {
         const complaintFromDatabase = await ComplaintModel.create({
-            latitude: lat,
-            longitude: lng,
+            latitude,
+            longitude,
             informer_id: informer,
             description_id: description,
             address_id: address,

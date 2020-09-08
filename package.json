@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "express": "^4.17.1",
+    "ioredis": "^4.17.3",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0",
     "yup": "^0.29.3"
@@ -13,7 +14,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "test": "jest",
-    "database":"npx sequelize-cli db:migrate"
+    "database": "npx sequelize-cli db:migrate"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
