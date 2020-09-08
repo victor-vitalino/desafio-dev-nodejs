@@ -7,7 +7,8 @@ class CreateComplaint {
 
             return res.status(201).json(response);
         } catch (error) {
-            return res.status(400).json(JSON.parse(error.message));
+            const err = JSON.parse(error.message);
+            return res.status(400).json(err);
         }
     }
 }

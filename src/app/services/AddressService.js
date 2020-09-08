@@ -26,7 +26,7 @@ class AddressService {
             throw new Error(JSON.stringify(complaintErrors.addressNotFound));
         }
 
-        return { addressData, cached: false };
+        return { addressData: address, cached: false };
     }
 }
 

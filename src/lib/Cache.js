@@ -5,7 +5,7 @@ const oneDayInSeconds = 60 * 60 * 24;
 class Cache {
     constructor() {
         this.redis = new Redis({
-            host: '192.168.99.100',
+            host: process.env.REDIS_HOST,
             port: 6379,
             keyPrefix: 'cache:',
         });

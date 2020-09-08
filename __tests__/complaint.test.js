@@ -26,8 +26,8 @@ describe('Complaint', () => {
         const response = await request(app)
             .post('/v1/denuncias')
             .send({
-                latitude: -9.6329144,
-                longitude: -35.7297573,
+                latitude: -9.6341418,
+                longitude: -35.7141995,
                 denunciante: {
                     nome: 'José de Oliveira',
                     cpf: '95761638037',
@@ -66,11 +66,11 @@ describe('Complaint', () => {
         const response = await request(app)
             .post('/v1/denuncias')
             .send({
-                latitude: -9.507445,
-                longitude: -35.812549,
+                latitude: -9.6341418,
+                longitude: -35.7141995,
                 denunciante: {
-                    nome: 'Victor Vitalino',
-                    cpf: '07965948486',
+                    nome: 'José de Oliveira',
+                    cpf: '95761638037',
                 },
                 denuncia: {
                     titulo: 'Esgoto a céu aberto',
@@ -79,14 +79,14 @@ describe('Complaint', () => {
                 },
             });
 
-        expect(response).toMatchObject({
+        expect(response.body).toMatchObject({
             data: {
                 id: 1,
-                latitude: -9.507445,
-                longitude: -35.812549,
+                latitude: -9.6341418,
+                longitude: -35.7141995,
                 denunciante: {
-                    nome: 'Victor Vitalino',
-                    cpf: '07965948486',
+                    nome: 'José de Oliveira',
+                    cpf: '95761638037',
                 },
                 denuncia: {
                     titulo: 'Esgoto a céu aberto',
@@ -94,12 +94,12 @@ describe('Complaint', () => {
                         'Existe um esgoto a céu aberto nesta localidade.',
                 },
                 endereco: {
-                    logradouro: 'Rua Primavera',
+                    logradouro: 'Rua José Antônio Reginaldo Pontes Lima',
                     bairro: '',
-                    cidade: 'Rio Largo',
+                    cidade: 'Maceió',
                     estado: 'Alagoas',
                     pais: 'BR',
-                    cep: '',
+                    cep: '57045-015',
                 },
             },
         });
