@@ -62,7 +62,7 @@ Seguindo os principios SOLID <br>
 
 ## Pré-Requisitos
 1. Ter o banco de dados Postgres instalado em sua máquina ou Executando no docker
-2. Ter o banco Redis instalado
+2. Ter o banco Redis instalado em sua máquina ou Executando no docker
 3. Os dois bancos deven estar Executando no momendo em que usar a aplicação
 4. Criar a database que ira usar no Postgres (Colocar o mesmo nome da database criada lá no arquivo .env na variável DB_NAME)
 
