@@ -54,8 +54,8 @@ Seguindo os principios SOLID <br>
 
 ## Como executar este projeto?
 1. Clone este projeto
-2. Execute um ``` yarn ``` ou ``` npm install ``` 
-3. Renomeie o arquivo .env copy para .env e edite as chaves da api e do seu banco de dados
+2. Execute o comando ``` yarn ```
+3. Renomeie o arquivo ´´´.env copy´´´ para ´´´.env´´´ e edite as chaves da api e do seu banco de dados
 4. Execute no console o comando ```yarn database``` para executar as migrations no banco de dados <br>
 5. execute o comando ```dev``` para iniciar a aplicação.
 > Sucesso !!
@@ -72,4 +72,10 @@ Seguindo os principios SOLID <br>
 ## Observações
 - A mesma instância do cache é utilizada para o cache e para os testes o que pode gerar interferências no retorno da api,
 execute o comando ``` docker exec -it nome-do-seu-container redis-cli FLUSHALL ``` para realizar a limpeza deste cache.
+
+
+## Tecnologias Utilizadas
+1. ExpressJs - para gerenciamento de requisições http
+2. Jest - para realização de testes automatizados
+3. Sequelize - Orm para execução de queries no banco de dados
 
