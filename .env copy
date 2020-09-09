@@ -1,15 +1,16 @@
 API_GEO_KEY =
 
 
-
 # database
 
 DB_DIALECT = postgres
-DB_HOST=
-DB_USERNAME=
+DB_HOST=localhost
+DB_USERNAME=postgres
 DB_PASSWORD=
 DB_NAME=
 
 
  # REDIS
  REDIS_HOST=
+
+

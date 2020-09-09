@@ -81,7 +81,7 @@ describe('Complaint', () => {
 
         expect(response.body).toMatchObject({
             data: {
-                id: 1,
+                id: 2,
                 latitude: -9.6341418,
                 longitude: -35.7141995,
                 denunciante: {
