@@ -74,7 +74,7 @@ Seguindo os principios SOLID <br>
 execute o comando ``` docker exec -it nome-do-seu-container redis-cli FLUSHALL ``` para realizar a limpeza deste cache
 no caso de suas requisiçoes terem a mesma lalitude e longitude que as do teste já que elas ficarão salvas do cache;
 
-- O projeto foi desenvolvido em ambiente windows, por conta disso foi utilizado o comando ```SET NODE_ENV=test``` no package.json,
+- O projeto foi desenvolvido em ambiente Windows, por conta disso foi utilizado o comando ```SET NODE_ENV=test``` no package.json,
     além da flag ```&&``` para encadear os comandos dentro dos scripts, caso esteja testando num Mac retire a flag ```SET``` e os ```&&```
 
 ## Tecnologias Utilizadas
