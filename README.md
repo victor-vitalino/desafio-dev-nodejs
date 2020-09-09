@@ -55,7 +55,7 @@ Seguindo os principios SOLID <br>
 ## Como executar este projeto?
 1. Clone este projeto
 2. Execute o comando ``` yarn ```
-3. Renomeie o arquivo ´´´ .env copy ´´´ para ´´´ .env ´´´ e edite as chaves da api e do seu banco de dados
+3. Renomeie o arquivo ```.env copy``` para ``` .env ``` e edite as chaves da api e do seu banco de dados
 4. Execute no console o comando ```yarn database``` para executar as migrations no banco de dados <br>
 5. execute o comando ```dev``` para iniciar a aplicação.
 > Sucesso !!
@@ -71,11 +71,58 @@ Seguindo os principios SOLID <br>
 
 ## Observações
 - A mesma instância do cache é utilizada para o cache e para os testes o que pode gerar interferências no retorno da api,
-execute o comando ``` docker exec -it nome-do-seu-container redis-cli FLUSHALL ``` para realizar a limpeza deste cache.
+execute o comando ``` docker exec -it nome-do-seu-container redis-cli FLUSHALL ``` para realizar a limpeza deste cache
+no caso de suas requisiçoes terem a mesma lalitude e longitude que as do teste já que elas ficarão salvas do cache;
 
 
 ## Tecnologias Utilizadas
-1. ExpressJs - para gerenciamento de requisições http
-2. Jest - para realização de testes automatizados
+1. ExpressJs - Para gerenciamento de requisições http
+2. Jest - Para realização de testes automatizados
 3. Sequelize - Orm para execução de queries no banco de dados
+4. Redis - Banco de dados chave/valor
+5. Yup - Para a validação de dados recebidos 
+
+##como o banco sql foi estruturado?
+
+O banco possui as tabelas de endereco, denunciante, descricao de denuncia. <br>
+**descricao**
+```
+    id:integer,
+    titulo:string,
+    descricao:string
+```
+**denunciante**
+```
+    id:integer,
+    nome:string,
+    cpf:string
+```
+**endereco**
+```
+    id:integer,
+    logradouro:string,
+    bairro:string
+    cidade:string
+    estado:string
+    pais:string
+    cep:string
+```
+E **denucia** que liga as outras atraves de chaves estrangeiras ficando:
+```
+    id: integer,
+    latitude: double,
+    longitude:double,
+    id_denunciante:integer,
+    id_descricao:integer,
+    id_endereco:integer
+```
+<br>
+desta forma impedindo a duplicação de dados como os de denunciante e de endereço
+
+## Como o cache está sendo salvo?
+O cache está sendo salvo num banco chave/valor de forma que ao criar uma nova denuncia será adicionado a este banco uma nova chave e valor
+ficando dessa forma:
+```
+"cache:latitude:longitude":"objeto-json-endereço-transformado-em-string"
+```
 
