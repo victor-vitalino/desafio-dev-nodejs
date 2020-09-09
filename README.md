@@ -82,7 +82,7 @@ no caso de suas requisiçoes terem a mesma lalitude e longitude que as do teste 
 4. Redis - Banco de dados chave/valor
 5. Yup - Para a validação de dados recebidos 
 
-##como o banco sql foi estruturado?
+## Como o banco sql foi estruturado?
 
 O banco possui as tabelas de endereco, denunciante, descricao de denuncia. <br>
 **descricao**
