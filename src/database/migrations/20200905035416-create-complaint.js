@@ -8,11 +8,11 @@ module.exports = {
                 allowNull: false,
             },
             latitude: {
-                type: Sequelize.NUMBER,
+                type: Sequelize.DOUBLE,
                 allowNull: false,
             },
             longitude: {
-                type: Sequelize.NUMBER,
+                type: Sequelize.DOUBLE,
                 allowNull: false,
             },
         });

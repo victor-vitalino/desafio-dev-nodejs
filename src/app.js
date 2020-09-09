@@ -1,4 +1,4 @@
-import './bootstrap';
+import 'dotenv';
 
 import express from 'express';
 

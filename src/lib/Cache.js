@@ -1,4 +1,5 @@
 import Redis from 'ioredis';
+import 'dotenv/config';
 
 const oneDayInSeconds = 60 * 60 * 24;
 

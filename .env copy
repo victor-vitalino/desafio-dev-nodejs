@@ -4,7 +4,7 @@ API_GEO_KEY =
 
 # database
 
-DB_DIALECT = sqlite
+DB_DIALECT = postgres
 DB_HOST=
 DB_USERNAME=
 DB_PASSWORD=

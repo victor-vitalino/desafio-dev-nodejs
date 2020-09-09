@@ -8,15 +8,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "ioredis": "^4.17.3",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0",
     "yup": "^0.29.3"
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "pretest":"set NODE_ENV=test&& sequelize-cli db:migrate",
+    "pretest": "set NODE_ENV=test&& sequelize-cli db:migrate",
     "test": "set NODE_ENV=test&&jest ",
-    "posttest":"set NODE_ENV=test&& sequelize-cli db:migrate:undo:all",
+    "posttest": "set NODE_ENV=test&& sequelize-cli db:migrate:undo:all",
     "database": "sequelize-cli db:migrate"
   },
   "devDependencies": {
