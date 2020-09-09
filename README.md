@@ -60,6 +60,9 @@ Seguindo os principios SOLID <br>
 5. execute o comando ```dev``` para iniciar a aplicação.
 > Sucesso !!
 
+## Rotas
+- [post] http://localhost:3000/v1/denuncias
+
 ## Pré-Requisitos
 1. Ter o banco de dados Postgres instalado em sua máquina ou Executando no docker
 2. Ter o banco Redis instalado em sua máquina ou Executando no docker
