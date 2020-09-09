@@ -55,7 +55,7 @@ Seguindo os principios SOLID <br>
 ## Como executar este projeto?
 1. Clone este projeto
 2. Execute o comando ``` yarn ```
-3. Renomeie o arquivo ´´´.env copy´´´ para ´´´.env´´´ e edite as chaves da api e do seu banco de dados
+3. Renomeie o arquivo ´´´ .env copy ´´´ para ´´´ .env ´´´ e edite as chaves da api e do seu banco de dados
 4. Execute no console o comando ```yarn database``` para executar as migrations no banco de dados <br>
 5. execute o comando ```dev``` para iniciar a aplicação.
 > Sucesso !!
@@ -67,7 +67,7 @@ Seguindo os principios SOLID <br>
 4. Criar a database que ira usar no Postgres (Colocar o mesmo nome da database criada lá no arquivo .env na variável DB_NAME)
 
 ## Como executar os testes nesse repositorio?
--- execute o comando ```yarn test```
+- execute o comando ```yarn test```
 
 ## Observações
 - A mesma instância do cache é utilizada para o cache e para os testes o que pode gerar interferências no retorno da api,
