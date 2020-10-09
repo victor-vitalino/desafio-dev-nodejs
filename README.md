@@ -84,8 +84,9 @@ no caso de suas requisiçoes terem a mesma lalitude e longitude que as do teste 
 1. ExpressJs - Para gerenciamento de requisições http
 2. Jest - Para realização de testes automatizados
 3. Sequelize - Orm para execução de queries no banco de dados
-4. Redis - Banco de dados chave/valor
-5. Yup - Para a validação de dados recebidos 
+4. Redis - Banco de dados chave/valor como cache de localizações para evitar chamadas excessivas a api de geolocalização
+5. Yup - Para a validação de dados recebidos
+6. Postgres - Banco de dados relacional para gravar os dados das denuncias
 
 ## Como o banco sql foi estruturado?
 
